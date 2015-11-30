@@ -231,7 +231,7 @@
             }
             else
             {
-                [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:btn attribute:NSLayoutAttributeLeading relatedBy:0 toItem:tmpBtn attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0]];
+                [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:btn attribute:NSLayoutAttributeLeading relatedBy:0 toItem:_contentBgView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0]];
             }
             
             tmpBtn = btn;
