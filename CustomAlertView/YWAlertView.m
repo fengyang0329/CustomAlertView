@@ -13,8 +13,12 @@
 #define kStartY 15.0
 #define kSpaceY 10.0  //Y轴间距
 
-#define kLineWid 0.5
-#define kLineColor [UIColor grayColor]
+#define kTitleColor [UIColor colorWithRed:(72/255.0) green:(72/255.0) blue:(72/255.0) alpha:1.0]
+#define kMessageColor [UIColor colorWithRed:(137/255.0) green:(137/255.0) blue:(137/255.0) alpha:1.0]
+#define kDefaultBtnTitleColor [UIColor colorWithRed:(0/255.0) green:(149/255.0) blue:(226/255.0) alpha:1.0]
+
+#define kLineWid 1
+#define kLineColor [UIColor colorWithRed:(237/255.0) green:(237/255.0) blue:(237/255.0) alpha:1.0]
 
 #define kBtnHeight 45
 
@@ -70,8 +74,8 @@
             _titleLabel = [[UILabel alloc] init];
             _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
             _titleLabel.textAlignment = NSTextAlignmentCenter;
-            _titleLabel.font = [UIFont systemFontOfSize:14.0];
-            _titleLabel.textColor = [UIColor blackColor];
+            _titleLabel.font = [UIFont boldSystemFontOfSize:14.0];
+            _titleLabel.textColor = kTitleColor;
             _titleLabel.numberOfLines = 0;
             [_titleLabel setBackgroundColor:[UIColor clearColor]];
             _titleLabel.text = title;
@@ -84,8 +88,8 @@
             _messageLabel = [[UILabel alloc] init];
             _messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
             _messageLabel.textAlignment = NSTextAlignmentCenter;
-            _messageLabel.font = [UIFont systemFontOfSize:13.0];
-            _messageLabel.textColor = [UIColor grayColor];
+            _messageLabel.font = [UIFont systemFontOfSize:14.0];
+            _messageLabel.textColor = kMessageColor;
             _messageLabel.numberOfLines = 0;
             [_messageLabel setBackgroundColor:[UIColor clearColor]];
             _messageLabel.text = message;
@@ -194,7 +198,7 @@
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.translatesAutoresizingMaskIntoConstraints = NO;
             [btn setTitle:_titles[i] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [btn setTitleColor:kDefaultBtnTitleColor forState:UIControlStateNormal];
             btn.translatesAutoresizingMaskIntoConstraints = NO;
             [btn setBackgroundColor:[UIColor clearColor]];
             [btn addTarget:self action:@selector(clickedBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -243,7 +247,7 @@
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.translatesAutoresizingMaskIntoConstraints = NO;
             [btn setTitle:_titles[i] forState:UIControlStateNormal];
-            [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+            [btn setTitleColor:kDefaultBtnTitleColor forState:UIControlStateNormal];
             btn.translatesAutoresizingMaskIntoConstraints = NO;
             [btn setBackgroundColor:[UIColor clearColor]];
             [btn addTarget:self action:@selector(clickedBtn:) forControlEvents:UIControlEventTouchUpInside];

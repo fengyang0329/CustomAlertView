@@ -39,10 +39,10 @@
     YWAlertView *alert = [[YWAlertView alloc] initWithTitle:title message:message  delegate:self buttonTitles:@"a",@"b",nil];
     [alert show];
     
-    [alert setButtonTitlesColor:[UIColor purpleColor],[UIColor greenColor]];
-    [alert setbuttonTitleColor:[UIColor blackColor] WithIndex:2];
-    [alert setButtonTitlesFont:[UIFont systemFontOfSize:16.0],[UIFont systemFontOfSize:28.0]];
-    [alert setbuttonTitleFont:[UIFont boldSystemFontOfSize:30] WithIndex:2];
+//    [alert setButtonTitlesColor:[UIColor purpleColor],[UIColor greenColor]];
+//    [alert setbuttonTitleColor:[UIColor blackColor] WithIndex:2];
+//    [alert setButtonTitlesFont:[UIFont systemFontOfSize:16.0],[UIFont systemFontOfSize:28.0]];
+//    [alert setbuttonTitleFont:[UIFont boldSystemFontOfSize:30] WithIndex:2];
 }
 
 #pragma mark YWAlertViewDelegate
