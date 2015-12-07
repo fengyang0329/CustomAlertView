@@ -47,6 +47,7 @@
 
         _visible = NO;
         self.alpha = 0.0;
+        self.delegate = delegate;
         
         _scrollView = [[UIScrollView alloc] init];
         _scrollView.scrollEnabled = NO;
