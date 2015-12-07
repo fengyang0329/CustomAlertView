@@ -65,10 +65,11 @@
 
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_scrollView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_scrollView)]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_scrollView attribute:NSLayoutAttributeCenterY relatedBy:0 toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
-        [_scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-startX-[_contentBgView]-startX-|" options:0 metrics:@{@"startX":@(kStartX)} views:NSDictionaryOfVariableBindings(_contentBgView)]];
+        [_scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_contentBgView]" options:0 metrics:@{@"startX":@(kStartX)} views:NSDictionaryOfVariableBindings(_contentBgView)]];
         [_scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_contentBgView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_contentBgView)]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_contentBgView attribute:NSLayoutAttributeCenterY relatedBy:0 toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
-         [self addConstraint:[NSLayoutConstraint constraintWithItem:_contentBgView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:kContentWidth]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:_contentBgView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:kContentWidth]];
+        [self addConstraint:[NSLayoutConstraint constraintWithItem:_contentBgView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:nil attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:[UIScreen mainScreen].bounds.size.width/2]];
         
         if (title.length > 0)
         {
