@@ -44,11 +44,11 @@
         bgColor = [bgColor colorWithAlphaComponent:0.3];
         [self setBackgroundColor:bgColor];
         [[UIApplication sharedApplication].keyWindow addSubview:self];
-        
+
         _visible = NO;
         self.alpha = 0.0;
         self.delegate = delegate;
-        
+
         
         _scrollView = [[UIScrollView alloc] init];
         _scrollView.scrollEnabled = NO;
@@ -63,14 +63,14 @@
         [_contentBgView setBackgroundColor:[UIColor whiteColor]];
         [_scrollView addSubview:_contentBgView];
         
-        
+
         [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_scrollView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_scrollView)]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_scrollView attribute:NSLayoutAttributeCenterY relatedBy:0 toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
         [_scrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_contentBgView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_contentBgView)]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_contentBgView attribute:NSLayoutAttributeCenterY relatedBy:0 toItem:self attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_contentBgView attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:kContentWidth]];
         [self addConstraint:[NSLayoutConstraint constraintWithItem:_scrollView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:self attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
-        [_scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentBgView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:_scrollView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+         [_scrollView addConstraint:[NSLayoutConstraint constraintWithItem:_contentBgView attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:_scrollView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
         
         
         if (title.length > 0)
@@ -85,8 +85,8 @@
             _titleLabel.text = title;
             [_contentBgView addSubview:_titleLabel];
         }
-        
-        
+       
+
         if (message.length > 0)
         {
             _messageLabel = [[UILabel alloc] init];
@@ -99,7 +99,7 @@
             _messageLabel.text = message;
             [_contentBgView addSubview:_messageLabel];
         }
-        
+    
         va_list args;
         va_start(args, buttonTitles);
         _titles = [NSMutableArray array];
@@ -114,7 +114,7 @@
             [_lineView setBackgroundColor:kLineColor];
             [_contentBgView addSubview:_lineView];
         }
-        
+
         [self addContentBgViewConstraints];
     }
     return self;
@@ -147,8 +147,8 @@
 {
     if (_titleLabel)
     {
-        [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-startX-[_titleLabel]-startX-|" options:0 metrics:@{@"startX":@(kStartX)} views:NSDictionaryOfVariableBindings(_titleLabel)]];
-        [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-startY-[_titleLabel]" options:0 metrics:@{@"startY":@(kStartY)} views:NSDictionaryOfVariableBindings(_titleLabel)]];
+          [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-startX-[_titleLabel]-startX-|" options:0 metrics:@{@"startX":@(kStartX)} views:NSDictionaryOfVariableBindings(_titleLabel)]];
+          [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-startY-[_titleLabel]" options:0 metrics:@{@"startY":@(kStartY)} views:NSDictionaryOfVariableBindings(_titleLabel)]];
     }
     if(_messageLabel)
     {
@@ -162,7 +162,7 @@
         {
             [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_lineView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_lineView)]];
             [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_lineView attribute:NSLayoutAttributeTop relatedBy:0 toItem:_messageLabel?_messageLabel:_titleLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:kSpaceY]];
-            [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_lineView attribute:NSLayoutAttributeHeight relatedBy:0 toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:kLineWid]];
+             [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_lineView attribute:NSLayoutAttributeHeight relatedBy:0 toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:kLineWid]];
         }
         //添加底部点击按钮
         [self initButtons];
@@ -177,7 +177,7 @@
         {
             [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeBottom relatedBy:0 toItem:_contentBgView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-kStartY]];
         }
-        
+
     }
 }
 
@@ -229,9 +229,9 @@
                 [_contentBgView addSubview:line];
                 
                 [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeLeading relatedBy:0 toItem:tmpBtn attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0]];
-                [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeTop relatedBy:0 toItem:tmpBtn attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
-                [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeBottom relatedBy:0 toItem:tmpBtn attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
-                [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:kLineWid]];
+                 [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeTop relatedBy:0 toItem:tmpBtn attribute:NSLayoutAttributeTop multiplier:1.0 constant:0]];
+                 [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeBottom relatedBy:0 toItem:tmpBtn attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
+                 [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeWidth relatedBy:0 toItem:nil attribute:NSLayoutAttributeWidth multiplier:1.0 constant:kLineWid]];
             }
             else
             {
@@ -258,9 +258,9 @@
             btn.tag = i;
             [_contentBgView addSubview:btn];
             
-            [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[btn]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(btn)]];
+             [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[btn]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(btn)]];
             [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:btn attribute:NSLayoutAttributeHeight relatedBy:0 toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:kBtnHeight]];
-            
+          
             if (i == _titles.count-1)
             {
                 [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:btn attribute:NSLayoutAttributeBottom relatedBy:0 toItem:_contentBgView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
@@ -275,7 +275,7 @@
                 [line setBackgroundColor:kLineColor];
                 [_contentBgView addSubview:line];
                 
-                [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[line]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(line)]];
+                 [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[line]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(line)]];
                 [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeTop relatedBy:0 toItem:tmpBtn attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0]];
                 [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:line attribute:NSLayoutAttributeHeight relatedBy:0 toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:kLineWid]];
             }
@@ -286,7 +286,7 @@
             tmpBtn = btn;
             [_btns addObject:btn];
         }
-        
+
     }
 }
 
@@ -339,7 +339,7 @@
     {
         UIButton *btn = _btns[index];
         [btn setTitleColor:titleColor forState:UIControlStateNormal];
-        
+
     }
 }
 
@@ -386,11 +386,11 @@
 
 
 /*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 
 @end
