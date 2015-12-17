@@ -10,8 +10,9 @@
 
 #define kContentWidth 270.0
 #define kStartX 20.0  //标题和提示语距离左右两边的间距
-#define kStartY 15.0
-#define kSpaceY 10.0  //Y轴间距
+#define kStartY 25
+#define kSpaceYToMessage 15 //标题和提示语之间的间距
+#define kSpaceYToLine 22.5  //提示语和分隔线的间距
 
 #define kTitleColor [UIColor colorWithRed:(72/255.0) green:(72/255.0) blue:(72/255.0) alpha:1.0]
 #define kMessageColor [UIColor colorWithRed:(137/255.0) green:(137/255.0) blue:(137/255.0) alpha:1.0]
@@ -153,7 +154,14 @@
     if(_messageLabel)
     {
         [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-startX-[_messageLabel]-startX-|" options:0 metrics:@{@"startX":@(kStartX)} views:NSDictionaryOfVariableBindings(_messageLabel)]];
-        [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeTop relatedBy:0 toItem:_titleLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:kSpaceY]];
+        if (_titleLabel) {
+             [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeTop relatedBy:0 toItem:_titleLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:kSpaceYToMessage]];
+        }
+        else
+        {
+             [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_messageLabel attribute:NSLayoutAttributeTop relatedBy:0 toItem:_contentBgView attribute:NSLayoutAttributeTop multiplier:1.0 constant:kStartY]];
+        }
+       
         
     }
     if (_titles.count > 0)
@@ -161,7 +169,7 @@
         if (_lineView)
         {
             [_contentBgView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_lineView]|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_lineView)]];
-            [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_lineView attribute:NSLayoutAttributeTop relatedBy:0 toItem:_messageLabel?_messageLabel:_titleLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:kSpaceY]];
+            [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_lineView attribute:NSLayoutAttributeTop relatedBy:0 toItem:_messageLabel?_messageLabel:_titleLabel attribute:NSLayoutAttributeBottom multiplier:1.0 constant:kSpaceYToLine]];
              [_contentBgView addConstraint:[NSLayoutConstraint constraintWithItem:_lineView attribute:NSLayoutAttributeHeight relatedBy:0 toItem:nil attribute:NSLayoutAttributeHeight multiplier:1.0 constant:kLineWid]];
         }
         //添加底部点击按钮
